@@ -116,7 +116,7 @@ class tx_logit {
 		$lines[] = 'SESSION BEGIN: '.date('Y-m-d H:i:s',$GLOBALS['EXEC_TIME']);
 		foreach($this->logData as $dat)	{
 			if (!$this->filterKey || $dat['extKey']==$this->filterKey)	{
-				if (!$this->filterSev || $dat['severity']==$this->filterSev)	{
+				if (!$this->filterSev || $dat['severity']>=$this->filterSev)	{
 					$lines[] = $dat['extKey'].'['.$dat['severity'].'] : '.$dat['msg'];
 				}
 			}
